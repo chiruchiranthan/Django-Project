@@ -1,0 +1,49 @@
+{% extends "custlayout.html" %}
+
+{% block title %}LOGIN{% endblock title %}
+
+{% block content %}
+
+<marquee  direction="right" scrollamount="12" style="color: green;">
+    <h1> WELCOME TO OUR GIFT SHOP</h1>
+    </marquee>
+    {% load static %}
+<div style="float: right;">
+    <img src="{% static 'img/1.jpg' %}" style="width: 600px;">
+</div>
+<h1>ADD YOUR DETAILS HERE</h1>
+
+{% if submitted %}
+ <p class="success">
+ Your venue was submitted successfully. Thank you.
+</p>
+{% else %}
+<form action="" method="post" novalidate>
+ <table  style="padding: 10px;border-spacing:0 15px;font-size: 20px;">
+ {{ form.as_table }}
+ <tr >
+ <td>&nbsp;</td>
+<td><input type="submit" value="Signup" style="width: 100px;height: 30px;font-size: 20px;"></td>
+<td><a href="/lg"><input type="button" value="Login"  style="width: 100px;height: 30px;font-size: 20px;"></a></td>
+ </tr>
+ </table>
+ {% csrf_token %}
+ </form>
+{% endif %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock content %}
+
+
+
+
+
+

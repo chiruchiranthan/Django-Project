@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+ <h1>ELECTRONICS</h1>
+ {% if gift_list %}
+ <table style="border-collapse: collapse;border: 1px solid black;width:800px;margin-left:auto;margin-right:auto;">
+    
+   <tr style="border: 1px solid black;">
+       <th style="border: 1px solid black;text-align:center;">
+          NAME
+       </th>
+       <th style="border: 1px solid black;text-align:center;">
+           GIFTTYPE
+       </th>
+       <th style="border: 1px solid black;text-align:center;">
+          PRICE
+       </th>
+       <th style="border: 1px solid black;text-align:center;">
+        IMAGE
+     </th>
+     <th style="border: 1px solid black;text-align:center;">
+       BUY
+     </th>
+   </tr>
+ {% for g in gift_list %}
+ {% if g.Gift_type == "ELECTRONIC" %}
+ <tr style="border: 1px solid black;text-align:center; font-weight:bold;">
+   <td style="border: 1px solid black;"> {{ g.Gift_name }}</td> <td style="border: 1px solid black;">{{g.Gift_type}}</td><td style="border: 1px solid black;">{{g.Gift_costprice}}</td>
+   {% load static %}
+  
+   <td style="border: 1px solid black;width: 220px;"><img src="{{g.headshot.url}}" width="200px" hright="200px"></td>
+   <td style="border: 1px solid black;"><a href="/addorder"> click here</a></td>
+  </tr>
+{% endif %}
+ {% endfor %}
+ </table>
+ {% else %}
+ <p>There are no books in the library.</p>
+ {% endif %} 
+{% endblock %}

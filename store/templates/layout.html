@@ -1,0 +1,56 @@
+{% load static %} 
+<!DOCTYPE html> 
+<html> 
+    <head>    
+        <meta charset="utf-8"/>
+            <title>{% block title %}{% endblock %}</title>
+                    <link rel="stylesheet" type="text/css" href="{% static 'site.css' %}"/>
+                 </head>
+<body > 
+    <div class="navbar">    
+         
+        <a href="/home" class="navbar-brand">HOME</a> 
+        <div class="dropdown">
+                <button class="dropbtn">GIFT TYPE
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="/dollslist">DOLLS</a>
+                  <a href="/statlist">STATIONARY</a>
+                  <a href="/giftlist">BOOKS</a>
+                  <a href="/eleclist">ELECTRONICS</a>
+                  <a href="/showlist">SHOW PIECES</a>
+                </div>
+              </div>
+                
+              <a href="/contact" class="navbar-brand">CONTACT</a> 
+        </div>
+<div class="body-content" style="background-color:aliceblue">   
+     {% block content %}    
+     {% endblock %}
+     {% block pagination %}
+ {% if is_paginated %}
+ <div class="pagination">
+ <span class="page-links">
+ {% if page_obj.has_previous %}
+ <a href="{{ request.path }}?page={{page_obj.previous_page_number }}">previous</a>
+ {% endif %}
+ <span class="page-current">
+ Page {{ page_obj.number }} of {{page_obj.paginator.num_pages }}.
+ </span>
+ {% if page_obj.has_next %}
+ <a href="{{ request.path }}?page={{page_obj.next_page_number }}">next</a>
+ {% endif %}
+ </span>
+ </div>
+ {% endif %}
+ {% endblock %}  
+  
+    </div> 
+    <hr/>    
+    <footer >        
+        <p>&copy; 2020</p>    
+        
+       </footer> 
+</body> 
+</html>

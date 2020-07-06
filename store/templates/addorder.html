@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}Add Order{% endblock title %}
+
+{% block content %}
+<h1 style="margin-left: 20px;">Place your order </h1>
+
+{% if submitted %}
+<h1> Thank you for shopping </h1>
+ <p class="success">
+ <a href="/home">click here</a> for continue shopping
+</p>
+{% else %}
+<form action="" method="post" novalidate>
+ <table style="padding: 10px;border-spacing:0 15px;font-size: 20px;margin-left:200px;margin-top: 50px;">
+ {{ form.as_table }}
+ <tr>
+ <td>&nbsp;</td>
+<td><input type="submit" value="Submit" style="width: 100px;height: 30px;font-size: 20px;"></td>
+ </tr>
+ </table>
+ {% csrf_token %}
+ </form>
+{% endif %}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock content %}
+
+
+
+
+
+
